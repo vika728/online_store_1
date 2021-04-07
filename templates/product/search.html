@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Результат поиска{% endblock %}
+{% load static %}
+
+
+{% block content %}
+
+
+    <!-- Blog Section Begin -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9 order-1 order-lg-2">
+                    <div class="row">
+                        {% for product in products %}
+                        <div class="col-md-6 col-6" style="text-align: center; margin-bottom: 35px">
+                              <div class="card" style="width: 40rem;">
+                                  <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                                  <div class="card-body">
+                                    <h3 class="card-title" style="font-weight: bold; margin-top: 5px;">{{ product.title }}</h3>
+                                    <h5 class="card-title" style="font-weight: bold; margin-top: 5px;">{{ product.additional_information  }}</h5>
+                                    <p class="card-text">{{ product.description|truncatewords:8 }}</p>
+                                  <div class="price-t" style="width: 100px; line-height: 1; padding: 7px; color: #fff; background-color: #ed1890; margin: 20px auto 0 auto">
+                                      <h5 style="font-weight: 900; font-size: 18px;">{{ product.price | floatformat:"0" }} с</h5>
+                                  </div>
+                                  <div class="d-grid gap-2 col-6 mx-auto">
+                                    <a href="{% url 'product-detail' product.pk %}" class="btn button b-button solid" style="background-color: #7cc832; padding: 15px; color: white; margin-top: 20px;     text-transform: uppercase;">
+<!--                                        <i class="icon-shopping-cart" style="font-size: 20px; padding-right: 15px"></i>-->
+                                        Подробнее
+                                    </a>
+                                  </div>
+                                  </div>
+                                </div>
+                          </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+
+
+
+{% endblock %}

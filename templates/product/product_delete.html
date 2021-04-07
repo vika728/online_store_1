@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h3 align="center">ВЫ действительно хотите удалить этот продукт?</h3>
+<form align="center" method="post">
+    {% csrf_token %}
+<button type="submit" class="btn btn-danger">Yes</button>
+<a class="btn btn-outline-success" href="{% url 'product-detail' product.id %}" role="button">No</a>
+</form>
+
+
+{% endblock %}

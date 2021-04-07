@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Войти{% endblock %}
+
+{% block content %}
+    <!-- Checkout Section Begin -->
+    <section class="checkout spad">
+        <div class="container">
+            <div class="checkout__form">
+                <h4>Вход</h4>
+                <form action="#" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-2 col-md-6"></div>
+                        <div class="col-lg-8 col-md-6">
+                            <div class="row">
+                            {{ form.as_p }}
+                            <button type="submit" class="site-btn">Войти</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

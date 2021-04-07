@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load cart_tag %}
+{% load static %}
+{% block content %}
+<div class="cart_products" style="display: flex;">
+  {% for key,value in request.session.cart.items %}
+<div class="card cart_card" style="width: 18rem; margin: 0 5% 0;">
+  <img src="{{ value.image }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <p class="card-text">Name: {{value.name}}</p>
+    <p class="card-text">Price: {{value.price}} сом</p>
+    <p class="card-text">Quantity: {{value.quantity}}</p>
+      <p class="card-text">Total cost: {{ value.price|multiply:value.quantity }} сом</p>
+  </div>
+      <div class="botton">
+      <a href="{% url 'item_increment' value.product_id %}" class="btn btn-success">Добавить один</a>
+          {% if value.quantity != 1 %}
+      <a href="{% url 'item_decrement' value.product_id %}" class="btn btn-danger">Убрать один</a>
+          {% endif %}
+    </div>
+
+</div>
+{% endfor %}
+</div>
+<a id="clear" href="{% url 'cart_clear' %}" class="btn btn-danger" style="width: 200px; height: 50px; margin-left: 80%; margin-top: 5%">Очистить корзину</a>
+{% endblock %}
