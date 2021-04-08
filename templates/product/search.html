@@ -10,11 +10,9 @@
     <section class="blog-section spad">
         <div class="container">
             <div class="row">
-                <div class="col-lg-9 order-1 order-lg-2">
-                    <div class="row">
                         {% for product in products %}
-                        <div class="col-md-6 col-6" style="text-align: center; margin-bottom: 35px">
-                              <div class="card" style="width: 40rem;">
+<!--                        <div class="col-md-12 col-12" style="text-align: center; margin-bottom: 35px">-->
+                              <div class="card col-lg-4" style="width: 40rem; margin-top: 30px">
                                   <img src="{{ product.image.url }}" class="card-img-top" alt="...">
                                   <div class="card-body">
                                     <h3 class="card-title" style="font-weight: bold; margin-top: 5px;">{{ product.title }}</h3>
@@ -30,11 +28,9 @@
                                     </a>
                                   </div>
                                   </div>
-                                </div>
-                          </div>
+                              </div>
+<!--                          </div>-->
                         {% endfor %}
-                    </div>
-                </div>
             </div>
         </div>
     </section>
